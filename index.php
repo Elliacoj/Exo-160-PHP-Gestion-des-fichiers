@@ -6,6 +6,9 @@
  * --> Attention à bien fermer votre fichier si vous utilisez fopen()
  */
 // TODO Votre code ici.
+$value = "Je suis une donnée écrite pour être rajouté dans un fichier texte.";
+file_put_contents('texte.txt', $value);
+echo file_get_contents('texte.txt');
 
 
 /**
@@ -15,20 +18,32 @@
  * --> Attention: les chaînes de caractères doivent s'ajouter à la suite du contenu déjà existant, pas d'écrasement.
  */
 // TODO Votre code ici
+$array = ["Bonjour, je suis un nouveau contenu.",
+          "Je continue ici pour l'exo",
+          "Par contre",
+          "J'en ai déjà marre",
+          "C'est pas amusant",
+          "D'ajouter du contenu",
+          "Du coup voilà"];
 
+foreach ($array as $value) {
+    file_put_contents('texte.txt', "\n" . $value, FILE_APPEND);
+}
 
 /**
- * 5. Trouvez une solution pour afficher à l'aide d'un simple echo l'extension du fichier index.php
+ * 5. Trouvez une solution pour afficher à l"aide d'un simple echo l'extension du fichier index.php
  */
 // TODO Votre code ici
-
+echo file_get_contents('texte.txt');
 
 
 /**
  * 6. Testez si le fichier 'toto' existe, sil n'existe pas, afficher un texte distant que ce fichier n'existe pas !
  */
 // TODO Votre code ici.
-
+if(!file_exists('toto.txt')) {
+    echo "Ce fichier n'existe pas";
+}
 
 /**
  * Super bonus.
